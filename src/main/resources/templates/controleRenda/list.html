@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../bootstrap-5.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../fontawesome-5.15.3/css/all.css">
+  <link rel="stylesheet" href="../css/estilo.css">
+  <title>Gerência de Projetos</title>
+</head>
+
+<body>
+  <header>
+    <h2>Gerência de Projetos</h2>
+  </header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">NewProjects</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/projeto/list">Projetos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/funcionario/list">Funcionários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/controleRenda/list">Controle de Renda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/produto/list">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sobre">Sobre</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-projeto">
+      <div class="div-title">
+          <h2>Lista de Projetos</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Valor</th>
+              <th scope="col" class="data">Data de Pagamento</th>
+              <th scope="col">Forma de Pagamento</th>
+              <th scope="col">Status</th>
+              <th scope="col">Produto</th>
+              <th scope="col" colspan="2">
+                <a class="a-novo" href="./add"><i class="fas fa-plus-circle"></i> Novo</a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="controleRenda: ${controlesRendas}">
+              <th scope="row" th:text="${controleRenda.id}"></th>
+              <td th:text="${'R$' + #numbers.formatDecimal(controleRenda.valor,1,'DEFAULT', 2, 'DEFAULT')}"></td>
+              <td th:text="${#dates.format(controleRenda.dataPagamento,'dd-MM-yyyy')}"></td>
+              <td th:text="${controleRenda.formaPagamento}"></td>
+              <td th:text="${controleRenda.status}"></td>
+              <td th:text="${#strings.arrayJoin(controleRenda.produtos.![nome], ',')}"></td>
+              <td scope="col"><a class="a-edit" th:href="@{'./edit/' + ${controleRenda.id}}">
+                <i class="fa fa-edit"></i></a></td>
+              <td scope="col"><a class="a-delete" 
+                th:onclick="|showModalDeletar('controleRenda', ${controleRenda.id})|">
+                <i class="fa fa-trash"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+  <div class="modal" tabindex="-1" id="modalDeletar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Atenção</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Você realmente deseja deletar o registro?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" 
+            class="btn btn-danger"
+            th:onclick="deletar()"
+          >
+            Deletar
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../bootstrap-5.0.0/js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

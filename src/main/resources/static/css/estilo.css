@@ -1,0 +1,142 @@
+body{
+    margin: 0;
+    font-family: monospace;
+}
+
+header{
+    background-color: rgb(23, 27, 235);
+    padding: 20px;
+}
+
+header > h2{
+    color:#fff;
+}
+
+.container{
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 60%;
+}
+
+.container-projeto{
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 95%;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    padding: 8px; 
+}
+
+.container > img{
+    width: 100%;
+}
+
+footer{
+    display: flex;
+    padding: 24px;
+    background-color: rgb(23, 27, 235);
+    color: #fff;
+}
+
+.card{
+    margin: auto;
+    width: 98%;
+}
+
+.a-edit{
+    color:green;
+}
+
+.a-edit:hover{
+    color:darkgreen;
+    font-weight: bold;
+}
+
+.a-delete{
+    color:crimson;
+}
+
+.a-delete:hover{
+    color:brown;
+    font-weight: bold;
+}
+
+.a-novo{
+    color:green;
+    padding: 7px;
+    text-decoration: none;
+}
+
+.a-novo:hover{
+    border:2px solid darkgreen;
+    color:darkgreen;
+    padding: 5px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.div-title{
+    background-color: rgb(80, 101, 224) ;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+.div-title h2{
+    color: aliceblue;
+}
+
+.formulario{
+    margin-top: 18px;
+    padding: 8px;
+    border: 2px solid rgb(80, 101, 224);
+    border-radius: 15px;
+
+}
+
+@media screen and (max-width:500px){
+    footer{
+        display: block;
+    }
+
+    .container{
+        width: 100%;
+    }
+
+}
+
+.data{
+    width: 150px
+}
+
+.div-funcionarios{
+    margin-bottom: 0.5rem;
+}
+
+.sair{
+    margin-top: 16px;
+    margin-bottom: 16px ;
+    text-align: right;
+    padding: 16px;
+}
+
+.Entrar{
+    margin-top: 16px;
+    padding: 16px;
+}
+.form-login{
+    margin: auto;
+    width: 40%;
+    margin-top: 150px;
+}
+
+a.botao{
+    font-size: 25px;
+}
