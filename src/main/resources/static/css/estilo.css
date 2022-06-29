@@ -140,3 +140,9 @@ footer{
 a.botao{
     font-size: 25px;
 }
+
+.form-Cad{
+    margin: auto;
+    margin-top: 5px;
+    padding: 10px;
+}

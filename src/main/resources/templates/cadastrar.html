@@ -48,6 +48,10 @@
 
 <form class="form-login" th:action="@{/cadastrar}"method="POST">
 
+    <div class="div-title">
+        <h2> Novo Usuario </h2>
+    </div>
+
     <div class="form-floating mb-3">
         <input type="text" name="nome" class="form-control" id="floatingNome" placeholder="Nome" required>
         <label for="floatingInput">Nome</label>
@@ -62,7 +66,7 @@
         <label for="floatingPassword">Senha</label>
     </div>
 
-    <div class="form-floating">
+    <div class="form-Cad">
         <button type="submit" class="btn btn-dark btn-cadastrar">
             Cadastrar <i class="fas fa-sign-in-alt"></i>
         </button>
